@@ -1,7 +1,7 @@
 import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
 import { AdminComponent } from './admin.component';
-import {AdminGuard} from "@my/pages/admin/admin.guard";
+import { AdminGuard } from "@my/pages/admin/admin.guard";
 
 const routes: Routes = [
   {
@@ -11,6 +11,8 @@ const routes: Routes = [
     canActivateChild: [AdminGuard],
     children: [
       { path: 'user', loadChildren: () => import('./routes/user/user.module').then(m => m.UserModule) },
+      { path: 'banner', loadChildren: () => import('./routes/banner/banner.module').then(m => m.BannerModule) },
+      { path: 'productCategory', loadChildren: () => import('./routes/product-category/product-category.module').then(m => m.ProductCategoryModule) },
       { path: '**', pathMatch: 'full', redirectTo: 'user' },
     ]
   }

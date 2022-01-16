@@ -1,0 +1,33 @@
+<div class="header">
+  <button nz-button nzType="primary">
+    <span nz-tooltip nzTooltipTitle="新增">
+      <i nz-icon nzType="plus" nzTheme="outline"></i>
+    </span>
+  </button>
+</div>
+<nz-table #basicTable [nzData]="banner">
+  <thead>
+    <tr>
+      <th>title</th>
+      <th>url</th>
+      <th>bannerImg</th>
+      <th>Action</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr *ngFor="let data of basicTable.data">
+      <td>{{ data.title }}</td>
+      <td>{{ data.url }}</td>
+      <td>{{ data.bannerImg }}</td>
+      <td>
+        <span nz-tooltip nzTooltipTitle="编辑">
+          <a>Edit</a>
+        </span>
+        <nz-divider nzType="vertical"></nz-divider>
+        <span nz-tooltip nzTooltipTitle="删除">
+          <a>Delete</a>
+        </span>
+      </td>
+    </tr>
+  </tbody>
+</nz-table>

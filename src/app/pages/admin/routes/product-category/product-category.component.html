@@ -1,0 +1,49 @@
+<div class="header">
+  <button nz-button nzType="primary" (click)="createModal()">
+    <span nz-tooltip nzTooltipTitle="新增">
+      <i nz-icon nzType="plus" nzTheme="outline"></i>
+    </span>
+  </button>
+</div>
+<nz-table
+  #basicTable
+  [nzData]="productCategory"
+  nzFrontPagination="false"
+  nzHideOnSinglePage="true"
+  [nzTotal]="totalCount"
+  [nzPageIndex]="page"
+  [nzPageSize]="per"
+  (nzPageIndexChange)="PageIndexChange($event)"
+>
+  <thead>
+  <tr>
+    <th>name{{totalCount}}</th>
+    <th>descriptions</th>
+    <th>coverImg</th>
+    <th>tag</th>
+    <th>Action</th>
+  </tr>
+  </thead>
+  <tbody>
+  <tr *ngFor="let data of basicTable.data">
+    <td>{{ data.name }}</td>
+    <td>{{ data.descriptions }}</td>
+    <td>{{ data.coverImg }}</td>
+    <td>{{ data.tag }}</td>
+    <td>
+        <span nz-tooltip nzTooltipTitle="编辑">
+          <a>Edit</a>
+        </span>
+      <nz-divider nzType="vertical"></nz-divider>
+      <span nz-tooltip nzTooltipTitle="删除">
+          <a
+            nz-popconfirm
+            [nzPopconfirmTitle]="'Are you sure delete' + data.name + '?'"
+            nzPopconfirmPlacement="bottom"
+            (nzOnConfirm)="DeleteData(data)"
+          >Delete</a>
+        </span>
+    </td>
+  </tr>
+  </tbody>
+</nz-table>
