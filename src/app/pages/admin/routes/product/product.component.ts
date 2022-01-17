@@ -1,27 +1,26 @@
 import {ChangeDetectorRef, Component, OnInit} from '@angular/core';
-import {ProductCategoryService} from "@my/services/product-category.service";
-import {Categories} from "@my/interfaces/productCategory";
-import {CategoryComponent} from "@my/pages/admin/routes/product-category/modules/category/category.component";
-import {NzModalService} from "ng-zorro-antd/modal";
 import {combineLatest, mergeMap, Subject, takeUntil, tap} from "rxjs";
+import {NzTableQueryParams} from "ng-zorro-antd/table";
+import {ProductService} from "@my/services/product.service";
+import {NzModalService} from "ng-zorro-antd/modal";
 import {RefreshService} from "@my/services/refresh.service";
 import {NzMessageService} from "ng-zorro-antd/message";
 import {ProfileService} from "@my/services/profile.service";
-import { NzTableQueryParams } from 'ng-zorro-antd/table'
+import {ProductList} from "@my/interfaces/product";
 
 @Component({
-  selector: 'app-product-category',
-  templateUrl: './product-category.component.html',
-  styleUrls: ['./product-category.component.less']
+  selector: 'app-product',
+  templateUrl: './product.component.html',
+  styleUrls: ['./product.component.less']
 })
-export class ProductCategoryComponent implements OnInit {
-  productCategory: Categories[] = []
+export class ProductComponent implements OnInit {
+  product: ProductList[] = []
   isLoading = true;
   pageSize = 10;
   pageIndex = 1;
   totalCount = 0;
   constructor(
-    private productCategoryService: ProductCategoryService,
+    private productService: ProductService,
     private modal: NzModalService,
     private refreshService: RefreshService,
     private ref: ChangeDetectorRef,
@@ -29,7 +28,6 @@ export class ProductCategoryComponent implements OnInit {
     private profileService: ProfileService,
   ) { }
   private destroy$ = new Subject()
-
   ngOnInit(): void {
     const refresh$ = this.profileService.token$.pipe(
       tap(()=>{
@@ -40,19 +38,19 @@ export class ProductCategoryComponent implements OnInit {
     )
     combineLatest([refresh$, this.refreshService.refresh$])
       .pipe(
-        mergeMap(([token])=> this.productCategoryService.ProductCategoryGetData(token, this.pageSize, this.pageIndex)),
+        mergeMap(([token])=> this.productService.ProductGetData(token, this.pageSize, this.pageIndex)),
         tap(()=>{
           this.isLoading = false;
           this.ref.markForCheck();
         }),
         takeUntil(this.destroy$)
       )
-    .subscribe(item=>{
-      this.totalCount = item.totalCount || 0;
-      this.productCategory = item.categories || [];
-      this.ref.markForCheck();
+      .subscribe(item=>{
+        this.totalCount = item.totalCount || 0;
+        this.product = item.products || [];
+        this.ref.markForCheck();
 
-    })
+      })
   }
 
   PageIndexChange(params: NzTableQueryParams): void{
@@ -63,21 +61,21 @@ export class ProductCategoryComponent implements OnInit {
 
   createModal(): void {
     this.modal.create({
-      nzTitle: 'Add ProductCategory',
-      nzContent: CategoryComponent,
+      nzTitle: 'Add Product',
+      nzContent: '',
       nzWidth: '800px'
     });
   }
 
-  DeleteData(row: Categories): void{
-    this.productCategoryService.ProductCategoryDelete(row._id)
+  DeleteData(row: ProductList): void{
+    this.productService.ProductDelete(row._id)
       .subscribe(item=>{
         if (item) {
           this.ref.markForCheck();
           this.refreshService.refresh();
           this.message.create('success', `${row.name} 删除成功!`);
         }
-    })
+      })
   }
 
 }

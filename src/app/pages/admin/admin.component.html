@@ -12,7 +12,7 @@
       </a>
     </div>
     <ul nz-menu nzTheme="dark" nzMode="inline" [nzInlineCollapsed]="isCollapsed">
-      <li nz-submenu nzOpen nzTitle="Dashboard" nzIcon="dashboard">
+      <li nz-submenu nzOpen nzTitle="User" nzIcon="user">
         <ul>
           <li nz-menu-item nzMatchRouter>
             <a routerLink="/admin/user">Welcome</a>
@@ -25,13 +25,16 @@
           </li>
         </ul>
       </li>
-      <li nz-submenu nzOpen nzTitle="Data" nzIcon="form">
+      <li nz-submenu nzOpen nzTitle="Shopping" nzIcon="shopping">
         <ul>
           <li nz-menu-item nzMatchRouter>
             <a routerLink="/admin/banner">Banner</a>
           </li>
           <li nz-menu-item nzMatchRouter>
             <a routerLink="/admin/productCategory">ProductCategory</a>
+          </li>
+          <li nz-menu-item nzMatchRouter>
+            <a routerLink="/admin/product">Product</a>
           </li>
         </ul>
       </li>

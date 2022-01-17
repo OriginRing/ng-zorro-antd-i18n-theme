@@ -12,7 +12,7 @@ import { CategoryComponent } from './modules/category/category.component'
 import { NzModalModule, NzModalService } from "ng-zorro-antd/modal";
 import { NzMessageService } from 'ng-zorro-antd/message'
 import { NzFormModule } from "ng-zorro-antd/form";
-import {NzPopconfirmModule} from "ng-zorro-antd/popconfirm";
+import { NzPopconfirmModule } from "ng-zorro-antd/popconfirm";
 
 @NgModule({
   declarations: [ProductCategoryComponent, CategoryComponent],

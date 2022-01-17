@@ -13,6 +13,7 @@ const routes: Routes = [
       { path: 'user', loadChildren: () => import('./routes/user/user.module').then(m => m.UserModule) },
       { path: 'banner', loadChildren: () => import('./routes/banner/banner.module').then(m => m.BannerModule) },
       { path: 'productCategory', loadChildren: () => import('./routes/product-category/product-category.module').then(m => m.ProductCategoryModule) },
+      { path: 'product', loadChildren: () => import('./routes/product/product.module').then(m => m.ProductModule) },
       { path: '**', pathMatch: 'full', redirectTo: 'user' },
     ]
   }
