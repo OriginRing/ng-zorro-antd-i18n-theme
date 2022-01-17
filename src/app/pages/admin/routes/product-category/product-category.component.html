@@ -10,14 +10,15 @@
   [nzData]="productCategory"
   nzFrontPagination="false"
   nzHideOnSinglePage="true"
+  [nzLoading]="isLoading"
   [nzTotal]="totalCount"
-  [nzPageIndex]="page"
-  [nzPageSize]="per"
-  (nzPageIndexChange)="PageIndexChange($event)"
+  [nzPageIndex]="pageIndex"
+  [nzPageSize]="pageSize"
+  (nzQueryParams)="PageIndexChange($event)"
 >
   <thead>
   <tr>
-    <th>name{{totalCount}}</th>
+    <th>name</th>
     <th>descriptions</th>
     <th>coverImg</th>
     <th>tag</th>

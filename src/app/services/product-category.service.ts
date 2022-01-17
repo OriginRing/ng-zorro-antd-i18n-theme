@@ -11,7 +11,8 @@ export class ProductCategoryService {
 
   constructor(private httpClient: HttpClient) { }
 
-  ProductCategoryGetData(per: number, page: number): Observable<ProductCategory>{
+  ProductCategoryGetData(token: string | null, per: number, page: number): Observable<ProductCategory>{
+    // console.log(token) token验证，根据需要添加
     return this.httpClient.get<ProductCategory>(`${url}/api/v1/admin/product_categories?per=${per}&page=${page}`)
       .pipe(
         map(item=> item || {}),
@@ -38,7 +39,7 @@ export class ProductCategoryService {
   ProductCategoryDelete(id: string | undefined): Observable<boolean>{
     return this.httpClient.delete<ProductCategory>(`${url}/api/v1/admin/product_categories/${id}`)
       .pipe(
-        map(item=> true || false),
+        map(()=> true || false),
         catchError(()=> of(false))
       )
   }
