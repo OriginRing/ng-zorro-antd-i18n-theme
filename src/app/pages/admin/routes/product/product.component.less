@@ -1,12 +1,16 @@
-:host{
-  .header {
-    display: flex;
-    flex-direction: row-reverse;
-    padding-bottom: 24px;
+@import "mixin";
+
+.themeMixin({
+  :host{
+    .header {
+      display: flex;
+      flex-direction: row-reverse;
+      padding-bottom: 24px;
+    }
+    .coverImg {
+      width: 100px;
+      height: 100px;
+      object-fit: cover;
+    }
   }
-  .coverImg {
-    width: 100px;
-    height: 100px;
-    object-fit: cover;
-  }
-}
+});

@@ -1,84 +1,110 @@
+@import "mixin";
+
+.themeMixin({
+  :host {
+    .sidebar-logo {
+      background: @primary-1;
+      h1 {
+        color: @text-color;
+      }
+    }
+
+    .app-header {
+      background: @layout-header-background;
+    }
+
+    .header-trigger {
+      color: @text-color;
+    }
+
+    .inner-content {
+      background: @layout-trigger-background;
+    }
+
+    .trigger:hover {
+      color: #1890ff;
+    }
+  }
+});
+
 :host {
   display: flex;
   text-rendering: optimizeLegibility;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
-}
-.ant-layout {
-  overflow: auto;
-}
+  .ant-layout {
+    overflow: auto;
+  }
 
-.app-layout {
-  height: 100vh;
-}
+  .app-layout {
+    height: 100vh;
+  }
 
-.menu-sidebar {
-  position: relative;
-  z-index: 10;
-  min-height: 100vh;
-  box-shadow: 2px 0 6px rgba(0,21,41,.35);
-}
+  .menu-sidebar {
+    position: relative;
+    z-index: 10;
+    min-height: 100vh;
+    box-shadow: 2px 0 6px rgba(0,21,41,.35);
+  }
 
-.header-trigger {
-  height: 64px;
-  font-size: 20px;
-  cursor: pointer;
-  transition: all .3s,padding 0s;
-}
+  .header-trigger {
+    height: 64px;
+    font-size: 20px;
+    cursor: pointer;
+    transition: all .3s,padding 0s;
+  }
+  .sidebar-logo {
+    position: relative;
+    height: 64px;
+    padding-left: 24px;
+    overflow: hidden;
+    line-height: 64px;
+    transition: all .3s;
+  }
 
-.trigger:hover {
-  color: #1890ff;
-}
+  .sidebar-logo img {
+    display: inline-block;
+    height: 32px;
+    width: 32px;
+    vertical-align: middle;
+  }
 
-.sidebar-logo {
-  position: relative;
-  height: 64px;
-  padding-left: 24px;
-  overflow: hidden;
-  line-height: 64px;
-  background: #001529;
-  transition: all .3s;
-}
+  .sidebar-logo h1 {
+    display: inline-block;
+    margin: 0 0 0 20px;
+    font-weight: 600;
+    font-size: 14px;
+    font-family: Avenir,Helvetica Neue,Arial,Helvetica,sans-serif;
+    vertical-align: middle;
+  }
 
-.sidebar-logo img {
-  display: inline-block;
-  height: 32px;
-  width: 32px;
-  vertical-align: middle;
-}
+  nz-header {
+    padding: 0;
+    width: 100%;
+    z-index: 2;
+  }
 
-.sidebar-logo h1 {
-  display: inline-block;
-  margin: 0 0 0 20px;
-  color: #fff;
-  font-weight: 600;
-  font-size: 14px;
-  font-family: Avenir,Helvetica Neue,Arial,Helvetica,sans-serif;
-  vertical-align: middle;
-}
+  .app-header {
+    position: relative;
+    height: 64px;
+    padding: 0 24px;
+    box-shadow: 0 1px 4px rgba(0,21,41,.08);
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    .icon {
+      i {
+        font-size: 16px;
+      }
+    }
+  }
 
-nz-header {
-  padding: 0;
-  width: 100%;
-  z-index: 2;
-}
+  nz-content {
+    margin: 24px;
+  }
 
-.app-header {
-  position: relative;
-  height: 64px;
-  padding: 0 24px;
-  background: #fff;
-  box-shadow: 0 1px 4px rgba(0,21,41,.08);
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-}
+  .inner-content {
+    padding: 24px;
+  }
 
-nz-content {
-  margin: 24px;
-}
-
-.inner-content {
-  padding: 24px;
-  background: #fff;
 }

@@ -14,6 +14,7 @@ import { IconsProviderModule } from './icons-provider.module';
 import { NzLayoutModule } from 'ng-zorro-antd/layout';
 import { NzMenuModule } from 'ng-zorro-antd/menu';
 import { ProfileService } from "@my/services/profile.service";
+import { AppInitializerProvider } from "@my/app-initializer.service";
 
 registerLocaleData(zh);
 
@@ -32,6 +33,7 @@ registerLocaleData(zh);
     NzMenuModule
   ],
   providers: [
+    AppInitializerProvider,
     { provide: NZ_I18N, useValue: zh_CN },
     {
       provide: APP_INITIALIZER,

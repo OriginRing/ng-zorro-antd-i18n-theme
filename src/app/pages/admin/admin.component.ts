@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { ThemeService } from "@my/services/theme.service";
 
 @Component({
   selector: 'app-admin',
@@ -8,9 +9,13 @@ import { Component, OnInit } from '@angular/core';
 export class AdminComponent implements OnInit {
   isCollapsed = false;
 
-  constructor() { }
+  constructor(private themeService: ThemeService) { }
 
   ngOnInit(): void {
+  }
+
+  toggleTheme(): void {
+    this.themeService.toggleTheme().then();
   }
 
 }

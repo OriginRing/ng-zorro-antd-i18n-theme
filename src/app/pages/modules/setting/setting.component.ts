@@ -1,6 +1,6 @@
-import {ChangeDetectorRef, Component, OnInit} from '@angular/core';
-import {ProfileService} from "@my/services/profile.service";
-import {Router} from "@angular/router";
+import { ChangeDetectorRef, Component, OnInit } from '@angular/core';
+import { ProfileService } from "@my/services/profile.service";
+import { Router } from "@angular/router";
 
 @Component({
   selector: 'app-setting',

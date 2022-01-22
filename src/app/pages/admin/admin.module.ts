@@ -8,6 +8,8 @@ import { NzMenuModule } from "ng-zorro-antd/menu";
 import { SettingComponent } from "@my/pages/modules/setting/setting.component";
 import { NzButtonModule } from "ng-zorro-antd/button";
 import { NzPopoverModule } from "ng-zorro-antd/popover";
+import { NzToolTipModule } from "ng-zorro-antd/tooltip";
+import { NzDividerModule } from "ng-zorro-antd/divider";
 
 @NgModule({
   declarations: [
@@ -21,7 +23,9 @@ import { NzPopoverModule } from "ng-zorro-antd/popover";
     NzIconModule,
     NzMenuModule,
     NzButtonModule,
-    NzPopoverModule
+    NzPopoverModule,
+    NzToolTipModule,
+    NzDividerModule
   ]
 })
 export class AdminModule { }

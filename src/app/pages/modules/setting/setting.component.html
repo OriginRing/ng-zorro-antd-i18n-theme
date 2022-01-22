@@ -1,4 +1,4 @@
-<button
+<span
   nz-button
   nzType="text"
   nz-popover
@@ -9,7 +9,7 @@
   [nzPopoverContent]="contentTemplate"
 >
   <i nz-icon nzType="setting" nzTheme="outline"></i>
-</button>
+</span>
 <ng-template #contentTemplate>
   <a (click)="clickMe()">退出</a>
 </ng-template>
