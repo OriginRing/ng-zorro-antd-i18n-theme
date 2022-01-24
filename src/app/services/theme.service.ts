@@ -1,4 +1,5 @@
 import { Injectable } from '@angular/core';
+import { NzConfigService } from "ng-zorro-antd/core/config";
 
 enum ThemeType {
   dark = 'dark',
@@ -11,7 +12,7 @@ enum ThemeType {
 export class ThemeService {
   currentTheme = ThemeType.default;
 
-  constructor() {}
+  constructor(private nzConfigService: NzConfigService) {}
 
   private reverseTheme(theme: string): ThemeType {
     return theme === ThemeType.dark ? ThemeType.default : ThemeType.dark;
@@ -49,6 +50,7 @@ export class ThemeService {
             document.documentElement.classList.add(theme);
           }
           this.removeUnusedTheme(this.reverseTheme(theme));
+          this.onDarkModeChange(this.currentTheme);
           resolve(e);
         },
         (e) => reject(e)
@@ -59,5 +61,15 @@ export class ThemeService {
   public toggleTheme(): Promise<Event> {
     this.currentTheme = this.reverseTheme(this.currentTheme);
     return this.loadTheme(false);
+  }
+
+  onDarkModeChange(dark: string): void {
+    const defaultEditorOption = this.nzConfigService.getConfigForComponent('codeEditor')?.defaultEditorOption || {};
+    this.nzConfigService.set('codeEditor', {
+      defaultEditorOption: {
+        ...defaultEditorOption,
+        theme: dark ==='dark' ? 'vs-dark' : 'vs'
+      }
+    });
   }
 }

@@ -26,7 +26,7 @@
   </thead>
   <tbody>
   <tr *ngFor="let data of basicTable.data">
-    <td>{{ data.name }}</td>
+    <td nz-tooltip [nzTooltipTitle]="data.name">{{ data.name }}</td>
     <td>
       <img class="coverImg" [src]="data.coverImg" [alt]="data.name" width="100px" height="100px" />
     </td>

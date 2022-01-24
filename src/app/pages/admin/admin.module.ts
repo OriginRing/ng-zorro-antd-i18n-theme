@@ -5,16 +5,15 @@ import { AdminRoutingModule } from './admin-routing.module';
 import { NzLayoutModule } from "ng-zorro-antd/layout";
 import { NzIconModule } from "ng-zorro-antd/icon";
 import { NzMenuModule } from "ng-zorro-antd/menu";
-import { SettingComponent } from "@my/pages/modules/setting/setting.component";
 import { NzButtonModule } from "ng-zorro-antd/button";
 import { NzPopoverModule } from "ng-zorro-antd/popover";
-import { NzToolTipModule } from "ng-zorro-antd/tooltip";
 import { NzDividerModule } from "ng-zorro-antd/divider";
+import { ThemeModule } from '@my/pages/modules/theme/theme.module';
+import { SettingModule } from "@my/pages/modules/setting/setting.module";
 
 @NgModule({
   declarations: [
-    AdminComponent,
-    SettingComponent
+    AdminComponent
   ],
   imports: [
     CommonModule,
@@ -24,8 +23,9 @@ import { NzDividerModule } from "ng-zorro-antd/divider";
     NzMenuModule,
     NzButtonModule,
     NzPopoverModule,
-    NzToolTipModule,
-    NzDividerModule
+    NzDividerModule,
+    ThemeModule,
+    SettingModule
   ]
 })
 export class AdminModule { }

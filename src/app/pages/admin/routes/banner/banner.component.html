@@ -16,7 +16,7 @@
   </thead>
   <tbody>
     <tr *ngFor="let data of basicTable.data">
-      <td>{{ data.title }}</td>
+      <td nz-tooltip [nzTooltipTitle]="data.title">{{ data.title }}</td>
       <td>{{ data.url }}</td>
       <td>{{ data.bannerImg }}</td>
       <td>

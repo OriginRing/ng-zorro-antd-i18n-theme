@@ -1,1 +1,28 @@
-<p>login works!</p>
+<div id="neon-btn" *ngIf="visible; else isFrom" >
+  <button class="btn one" (click)="onKey()">普通管理员</button>
+  <button  class="btn two" (click)="onKey()">管理员</button>
+  <button  class="btn three" (click)="onKey()">系统管理员</button>
+</div>
+
+<ng-template #isFrom>
+  <div class="login">
+    <app-theme></app-theme>
+    <form nz-form [formGroup]="validateForm" class="login-form" (ngSubmit)="submitForm()">
+      <nz-form-item>
+        <nz-form-control nzErrorTip="Please input your username!">
+          <nz-input-group nzPrefixIcon="user">
+            <input type="text" nz-input formControlName="userName" placeholder="Username" />
+          </nz-input-group>
+        </nz-form-control>
+      </nz-form-item>
+      <nz-form-item>
+        <nz-form-control nzErrorTip="Please input your Password!">
+          <nz-input-group nzPrefixIcon="lock">
+            <input type="password" nz-input formControlName="password" placeholder="Password" />
+          </nz-input-group>
+        </nz-form-control>
+      </nz-form-item>
+      <button nz-button class="login-form-button login-form-margin" [nzType]="'primary'">Log in</button>
+    </form>
+  </div>
+</ng-template>
