@@ -3,8 +3,6 @@ import { BrowserModule } from '@angular/platform-browser';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
-import { NZ_I18N } from 'ng-zorro-antd/i18n';
-import { zh_CN } from 'ng-zorro-antd/i18n';
 import { registerLocaleData } from '@angular/common';
 import zh from '@angular/common/locales/zh';
 import { FormsModule } from '@angular/forms';
@@ -15,6 +13,7 @@ import { NzLayoutModule } from 'ng-zorro-antd/layout';
 import { NzMenuModule } from 'ng-zorro-antd/menu';
 import { ProfileService } from "@my/services/profile.service";
 import { AppInitializerProvider } from "@my/app-initializer.service";
+import {AppI18nService} from "@my/app-i18n.service";
 
 registerLocaleData(zh);
 
@@ -34,7 +33,7 @@ registerLocaleData(zh);
   ],
   providers: [
     AppInitializerProvider,
-    { provide: NZ_I18N, useValue: zh_CN },
+    AppI18nService,
     {
       provide: APP_INITIALIZER,
       useFactory: (profileService: ProfileService)=>()=> profileService.boot(),
