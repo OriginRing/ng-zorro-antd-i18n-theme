@@ -7,6 +7,8 @@
 <ng-template #isFrom>
   <div class="login">
     <app-theme></app-theme>
+    <app-localize></app-localize>
+    <h1>Admin</h1>
     <form nz-form [formGroup]="validateForm" class="login-form" (ngSubmit)="submitForm()">
       <nz-form-item>
         <nz-form-control nzErrorTip="Please input your username!">

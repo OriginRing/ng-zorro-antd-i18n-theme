@@ -18,12 +18,14 @@ export class AdminGuard implements CanActivate, CanActivateChild {
   canActivate(
     route: ActivatedRouteSnapshot,
     state: RouterStateSnapshot): Observable<boolean | UrlTree> | Promise<boolean | UrlTree> | boolean | UrlTree {
-    if (this.profileService.token) {
-      this.router.createUrlTree(['/admin/user']);
-      return true;
-    } else {
+    if (this.profileService.token === null) {
       return this.router.createUrlTree(['/login']);
+      return false;
     }
+    if (state.url === '/admin') {
+      return this.router.createUrlTree(['/admin/user']);
+    }
+    return true;
   }
 
   canActivateChild(

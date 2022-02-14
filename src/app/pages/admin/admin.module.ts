@@ -10,6 +10,7 @@ import { NzPopoverModule } from "ng-zorro-antd/popover";
 import { NzDividerModule } from "ng-zorro-antd/divider";
 import { ThemeModule } from '@my/pages/modules/theme/theme.module';
 import { SettingModule } from "@my/pages/modules/setting/setting.module";
+import { LocalizeModule } from "@my/pages/modules/localize/localize.module";
 
 @NgModule({
   declarations: [
@@ -25,7 +26,8 @@ import { SettingModule } from "@my/pages/modules/setting/setting.module";
     NzPopoverModule,
     NzDividerModule,
     ThemeModule,
-    SettingModule
+    SettingModule,
+    LocalizeModule
   ]
 })
 export class AdminModule { }

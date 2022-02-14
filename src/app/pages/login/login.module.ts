@@ -8,6 +8,7 @@ import { NzButtonModule } from 'ng-zorro-antd/button';
 import { NzInputModule } from 'ng-zorro-antd/input';
 import { NzIconModule } from "ng-zorro-antd/icon";
 import { ThemeModule } from "@my/pages/modules/theme/theme.module";
+import { LocalizeModule } from "@my/pages/modules/localize/localize.module";
 
 @NgModule({
   declarations: [
@@ -22,7 +23,8 @@ import { ThemeModule } from "@my/pages/modules/theme/theme.module";
     NzButtonModule,
     NzInputModule,
     NzIconModule,
-    ThemeModule
+    ThemeModule,
+    LocalizeModule
   ]
 })
 export class LoginModule { }
