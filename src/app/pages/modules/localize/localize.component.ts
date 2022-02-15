@@ -1,9 +1,9 @@
-import {ChangeDetectorRef, Component, OnInit} from '@angular/core';
+import { ChangeDetectorRef, Component, OnInit } from '@angular/core';
 
 @Component({
   selector: 'app-localize',
   templateUrl: './localize.component.html',
-  styleUrls: ['./localize.component.less']
+  styleUrls: [ './localize.component.less' ]
 })
 export class LocalizeComponent implements OnInit {
   visible = true;
@@ -27,7 +27,7 @@ export class LocalizeComponent implements OnInit {
         '/' +
         value +
         '/' +
-        window.location.hash
+        window.location.hash;
     }
   }
 

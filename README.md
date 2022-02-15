@@ -18,7 +18,7 @@
 ## 国际化
 ```
 npm run extract
-注： 此功能在win系统可能使zh.json获取i18n失败，请使用linux、mac启动
+注： 此功能在win系统可下zh.json无法获取字符串，请使用linux、mac操作
 ```  
 修改src/locale/en.js中的中文，请勿修改zh.json中字段
 
@@ -27,3 +27,5 @@ npm run extract
 npm run start
 npm run start:en
 ```
+
+## eslint

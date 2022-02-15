@@ -1,16 +1,11 @@
-import { Component, OnInit } from '@angular/core';
+import { Component } from '@angular/core';
 
 @Component({
   selector: 'app-admin',
   templateUrl: './admin.component.html',
-  styleUrls: ['./admin.component.less']
+  styleUrls: [ './admin.component.less' ]
 })
-export class AdminComponent implements OnInit {
+export class AdminComponent {
   isCollapsed = false;
-
-  constructor() { }
-
-  ngOnInit(): void {
-  }
 
 }

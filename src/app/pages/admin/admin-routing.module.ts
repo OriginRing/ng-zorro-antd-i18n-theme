@@ -7,8 +7,8 @@ const routes: Routes = [
   {
     path: '',
     component: AdminComponent,
-    canActivate: [AdminGuard],
-    canActivateChild: [AdminGuard],
+    canActivate: [ AdminGuard ],
+    canActivateChild: [ AdminGuard ],
     children: [
       { path: 'user', loadChildren: () => import('./routes/user/user.module').then(m => m.UserModule) },
       { path: 'banner', loadChildren: () => import('./routes/banner/banner.module').then(m => m.BannerModule) },
@@ -20,7 +20,7 @@ const routes: Routes = [
 ];
 
 @NgModule({
-  imports: [RouterModule.forChild(routes)],
-  exports: [RouterModule]
+  imports: [ RouterModule.forChild(routes) ],
+  exports: [ RouterModule ]
 })
 export class AdminRoutingModule { }

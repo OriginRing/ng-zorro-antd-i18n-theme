@@ -1,8 +1,8 @@
 const zhJson = require('./zh.json');
 const fs = require('fs');
-const languages = ['en', 'zh'];
-console.log(zhJson)
-const baseTranslation = sortObjectKeys(zhJson.translations)
+const languages = [ 'en', 'zh' ];
+console.log(zhJson);
+const baseTranslation = sortObjectKeys(zhJson.translations);
 languages.forEach(language => {
   let translation;
   try {
@@ -19,7 +19,7 @@ languages.forEach(language => {
     }
   };
   fs.writeFileSync(`./src/locale/${language}.json`, JSON.stringify(mergeJson, null, 2));
-})
+});
 
 function sortObjectKeys(obj) {
   return Object.keys(obj)

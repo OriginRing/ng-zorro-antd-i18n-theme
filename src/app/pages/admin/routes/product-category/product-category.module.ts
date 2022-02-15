@@ -8,14 +8,14 @@ import { NzDividerModule } from "ng-zorro-antd/divider";
 import { NzButtonModule } from "ng-zorro-antd/button";
 import { NzIconModule } from "ng-zorro-antd/icon";
 import { NzToolTipModule } from "ng-zorro-antd/tooltip";
-import { CategoryComponent } from './modules/category/category.component'
+import { CategoryComponent } from './modules/category/category.component';
 import { NzModalModule, NzModalService } from "ng-zorro-antd/modal";
-import { NzMessageService } from 'ng-zorro-antd/message'
+import { NzMessageService } from 'ng-zorro-antd/message';
 import { NzFormModule } from "ng-zorro-antd/form";
 import { NzPopconfirmModule } from "ng-zorro-antd/popconfirm";
 
 @NgModule({
-  declarations: [ProductCategoryComponent, CategoryComponent],
+  declarations: [ ProductCategoryComponent, CategoryComponent ],
     imports: [
         CommonModule,
         FormsModule,
@@ -30,6 +30,6 @@ import { NzPopconfirmModule } from "ng-zorro-antd/popconfirm";
         NzModalModule,
         NzPopconfirmModule
     ],
-  providers: [NzModalService, NzMessageService]
+  providers: [ NzModalService, NzMessageService ]
 })
 export class ProductCategoryModule { }

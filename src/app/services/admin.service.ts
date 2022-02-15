@@ -13,11 +13,11 @@ export class AdminService {
   adminToken(userName: string, password: string): Observable<string | null>{
     return this.httpClient.post<{token: string}>(
       `${url}/api/v1/auth/manager_login`,
-      { userName: userName, password: password}
+      { userName: userName, password: password }
     )
       .pipe(
-        map(item=> item.token || null),
-        catchError(()=> of(null))
-      )
+        map(item => item.token || null),
+        catchError(() => of(null))
+      );
   }
 }

@@ -5,10 +5,10 @@ import { NzToolTipModule } from "ng-zorro-antd/tooltip";
 import { NzIconModule } from "ng-zorro-antd/icon";
 
 @NgModule({
-  declarations: [ThemeComponent],
+  declarations: [ ThemeComponent ],
   exports: [
     ThemeComponent
   ],
-  imports: [CommonModule, NzToolTipModule, NzIconModule]
+  imports: [ CommonModule, NzToolTipModule, NzIconModule ]
 })
 export class ThemeModule { }

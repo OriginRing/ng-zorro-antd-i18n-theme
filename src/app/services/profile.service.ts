@@ -19,7 +19,7 @@ export class ProfileService {
   boot() {
     return this.adminService.adminToken("admin", "admin")
       .pipe(
-        tap((item)=>{
+        tap((item) => {
           this.setToken(item);
         }),
         mapTo(true),

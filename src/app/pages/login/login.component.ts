@@ -7,7 +7,7 @@ import { Router } from "@angular/router";
 @Component({
   selector: 'app-login',
   templateUrl: './login.component.html',
-  styleUrls: ['./login.component.less']
+  styleUrls: [ './login.component.less' ]
 })
 export class LoginComponent implements OnInit {
   visible = true;
@@ -18,11 +18,10 @@ export class LoginComponent implements OnInit {
       this.adminService.adminToken(this.validateForm.value.userName, this.validateForm.value.password)
         .subscribe(item => {
           if (item) {
-            this.profileService.setToken(item)
-            console.log(1)
-            this.router.navigate(['/admin'])
+            this.profileService.setToken(item);
+            this.router.navigate([ '/admin' ]);
           }
-        })
+        });
     } else {
       Object.values(this.validateForm.controls).forEach(control => {
         if (control.invalid) {
@@ -46,8 +45,8 @@ export class LoginComponent implements OnInit {
 
   ngOnInit(): void {
     this.validateForm = this.fb.group({
-      userName: [null, [Validators.required]],
-      password: [null, [Validators.required]]
+      userName: [ null, [ Validators.required ] ],
+      password: [ null, [ Validators.required ] ]
     });
   }
 

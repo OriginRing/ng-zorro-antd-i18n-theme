@@ -1,4 +1,4 @@
-import {APP_INITIALIZER, NgModule} from '@angular/core';
+import { APP_INITIALIZER, NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 
 import { AppRoutingModule } from './app-routing.module';
@@ -13,7 +13,7 @@ import { NzLayoutModule } from 'ng-zorro-antd/layout';
 import { NzMenuModule } from 'ng-zorro-antd/menu';
 import { ProfileService } from "@my/services/profile.service";
 import { AppInitializerProvider } from "@my/app-initializer.service";
-import {AppI18nService} from "@my/app-i18n.service";
+import { AppI18nService } from "@my/app-i18n.service";
 
 registerLocaleData(zh);
 
@@ -36,11 +36,11 @@ registerLocaleData(zh);
     AppI18nService,
     {
       provide: APP_INITIALIZER,
-      useFactory: (profileService: ProfileService)=>()=> profileService.boot(),
-      deps: [ProfileService],
+      useFactory: (profileService: ProfileService) => () => profileService.boot(),
+      deps: [ ProfileService ],
       multi: true
     }
   ],
-  bootstrap: [AppComponent]
+  bootstrap: [ AppComponent ]
 })
 export class AppModule { }
