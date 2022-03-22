@@ -6,7 +6,9 @@
     </nz-form-control>
   </nz-form-item>
   <nz-form-item>
-    <nz-form-label [nzSm]="6" [nzXs]="24" nzFor="descriptions" nzRequired>descriptions</nz-form-label>
+    <nz-form-label [nzSm]="6" [nzXs]="24" nzFor="descriptions" nzRequired>
+      descriptions
+    </nz-form-label>
     <nz-form-control [nzSm]="14" [nzXs]="24" nzErrorTip="Please input your descriptions!">
       <input nz-input formControlName="descriptions" id="descriptions" />
     </nz-form-control>
@@ -14,7 +16,16 @@
   <nz-form-item>
     <nz-form-label [nzSm]="6" [nzXs]="24" nzFor="coverImg" nzRequired>coverImg</nz-form-label>
     <nz-form-control [nzSm]="14" [nzXs]="24" nzErrorTip="Please input your coverImg!">
-      <input nz-input formControlName="coverImg" id="coverImg" />
+      <nz-upload
+        nzListType="picture-card"
+        [nzShowUploadList]="false"
+        [nzBeforeUpload]="beforeUpload">
+        <ng-container *ngIf="!avatarUrl">
+          <i class="upload-icon" nz-icon [nzType]="loading ? 'loading' : 'plus'"></i>
+          <div class="ant-upload-text">Upload</div>
+        </ng-container>
+        <img *ngIf="avatarUrl" [src]="avatarUrl" style="width: 100%" />
+      </nz-upload>
     </nz-form-control>
   </nz-form-item>
   <nz-form-item>

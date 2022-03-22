@@ -5,6 +5,9 @@ import { ProductCategoryService } from "@my/services/product-category.service";
 import { NzMessageService } from 'ng-zorro-antd/message';
 import { map } from "rxjs";
 import { RefreshService } from "@my/services/refresh.service";
+import { NzUploadFile } from "ng-zorro-antd/upload";
+import { AdminService } from "@my/services/admin.service";
+import { url } from "@my/uitls/url";
 
 @Component({
   selector: 'app-category',
@@ -12,6 +15,9 @@ import { RefreshService } from "@my/services/refresh.service";
   styleUrls: [ './category.component.less' ]
 })
 export class CategoryComponent implements OnInit {
+  loading = false;
+  avatarUrl?: string;
+  fileList: NzUploadFile[] = [];
   validateForm!: FormGroup;
   constructor(
     private fb: FormBuilder,
@@ -19,7 +25,8 @@ export class CategoryComponent implements OnInit {
     private productCategoryService: ProductCategoryService,
     private message: NzMessageService,
     private refreshService: RefreshService,
-    private ref: ChangeDetectorRef
+    private adminService: AdminService,
+    private ref: ChangeDetectorRef,
   ) { }
 
   ngOnInit(): void {
@@ -33,6 +40,7 @@ export class CategoryComponent implements OnInit {
   }
 
   submitForm(): void {
+    this.validateForm.patchValue({ coverImg: this.avatarUrl });
     if (this.validateForm.valid) {
       this.productCategoryService.ProductCategoryPostAdd(
         this.validateForm.value.name,
@@ -62,4 +70,22 @@ export class CategoryComponent implements OnInit {
     this.nzModalRef.close();
   }
 
+  beforeUpload = (file: NzUploadFile): boolean => {
+    this.fileList = this.fileList.concat(file);
+    this.handleUpload();
+    return false;
+  };
+
+  handleUpload(): void {
+    const formData = new FormData();
+    // eslint-disable-next-line @typescript-eslint/no-explicit-any
+    this.fileList.forEach((file: any) => {
+      formData.append('file', file);
+    });
+    this.adminService.uploadFile(formData)
+      .subscribe(item => {
+        this.avatarUrl = url + item;
+        this.ref.markForCheck();
+      });
+  }
 }

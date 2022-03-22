@@ -4,3 +4,8 @@ export interface Admin{
   nickName?: string,
   avatar?: string
 }
+
+export interface Upload {
+  message?: string,
+  info?: string
+}
