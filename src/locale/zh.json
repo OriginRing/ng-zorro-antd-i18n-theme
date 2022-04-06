@@ -1,4 +1,25 @@
 {
   "locale": "zh",
-  "translations": {}
+  "translations": {
+    "admin": "后台管理系统",
+    "banner": "轮播图片",
+    "login": "登录",
+    "login.admin.fir": "普通管理员",
+    "login.admin.sec": "管理员",
+    "login.admin.thr": "系统管理员",
+    "login.error": "登陆失败!",
+    "password": "密码",
+    "product": "商品",
+    "product_category": "商品分类",
+    "product_category.action": "操作",
+    "product_category.delete": "删除",
+    "product_category.edit": "编辑",
+    "product_category.img": "图片",
+    "product_category.name": "类型",
+    "product_category.tag": "标签",
+    "quit": "退出",
+    "shopping": "商品",
+    "theme.title": "切换主题",
+    "username": "用户名"
+  }
 }

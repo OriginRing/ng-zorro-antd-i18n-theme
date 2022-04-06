@@ -1,7 +1,6 @@
 const zhJson = require('./zh.json');
 const fs = require('fs');
 const languages = [ 'en', 'zh' ];
-console.log(zhJson);
 const baseTranslation = sortObjectKeys(zhJson.translations);
 languages.forEach(language => {
   let translation;

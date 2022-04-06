@@ -1,4 +1,25 @@
 {
   "locale": "en",
-  "translations": {}
+  "translations": {
+    "admin": "Admin",
+    "banner": "Banner",
+    "login": "Login",
+    "login.admin.fir": "普通管理员",
+    "login.admin.sec": "Admin",
+    "login.admin.thr": "系统管理员",
+    "login.error": " Login Error!",
+    "password": "password",
+    "product": "Product",
+    "product_category": "ProductCategory",
+    "product_category.action": "Action",
+    "product_category.delete": "Delete",
+    "product_category.edit": "Edit",
+    "product_category.img": "CoveImg",
+    "product_category.name": "Name",
+    "product_category.tag": "Tag",
+    "quit": "Quit",
+    "shopping": "Shopping",
+    "theme.title": "check theme",
+    "username": "userName"
+  }
 }

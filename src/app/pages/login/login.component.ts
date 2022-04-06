@@ -3,6 +3,7 @@ import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { AdminService } from "@my/services/admin.service";
 import { ProfileService } from "@my/services/profile.service";
 import { Router } from "@angular/router";
+import { NzMessageService } from "ng-zorro-antd/message";
 
 @Component({
   selector: 'app-login',
@@ -20,6 +21,8 @@ export class LoginComponent implements OnInit {
           if (item) {
             this.profileService.setToken(item);
             this.router.navigate([ '/admin' ]);
+          } else {
+            this.message.error($localize`:@@login.error: 登陆失败!`);
           }
         });
     } else {
@@ -40,7 +43,8 @@ export class LoginComponent implements OnInit {
     private fb: FormBuilder,
     private adminService: AdminService,
     private profileService: ProfileService,
-    private router: Router
+    private router: Router,
+    private message: NzMessageService
   ) {}
 
   ngOnInit(): void {

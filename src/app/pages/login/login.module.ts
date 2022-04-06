@@ -7,6 +7,7 @@ import { NzFormModule } from 'ng-zorro-antd/form';
 import { NzButtonModule } from 'ng-zorro-antd/button';
 import { NzInputModule } from 'ng-zorro-antd/input';
 import { NzIconModule } from "ng-zorro-antd/icon";
+import { NzMessageModule } from "ng-zorro-antd/message"
 import { ThemeModule } from "@my/pages/modules/theme/theme.module";
 import { LocalizeModule } from "@my/pages/modules/localize/localize.module";
 
@@ -23,6 +24,7 @@ import { LocalizeModule } from "@my/pages/modules/localize/localize.module";
     NzButtonModule,
     NzInputModule,
     NzIconModule,
+    NzMessageModule,
     ThemeModule,
     LocalizeModule
   ]

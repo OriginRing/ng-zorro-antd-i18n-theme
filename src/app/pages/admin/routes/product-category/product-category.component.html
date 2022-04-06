@@ -18,10 +18,10 @@
 >
   <thead>
   <tr>
-    <th>name</th>
-    <th>coverImg</th>
-    <th>tag</th>
-    <th>Action</th>
+    <th i18n="@@product_category.name">类型</th>
+    <th i18n="@@product_category.img">图片</th>
+    <th i18n="@@product_category.tag">标签</th>
+    <th i18n="@@product_category.action">操作</th>
   </tr>
   </thead>
   <tbody>
@@ -32,17 +32,18 @@
     </td>
     <td>{{ data.tag }}</td>
     <td>
-        <span nz-tooltip nzTooltipTitle="编辑">
-          <a>Edit</a>
+        <span nz-tooltip nzTooltipTitle="编辑" i18n-nzTooltipTitle="@@product_category.edit">
+          <a i18n="@@product_category.edit">编辑</a>
         </span>
       <nz-divider nzType="vertical"></nz-divider>
-      <span nz-tooltip nzTooltipTitle="删除">
+      <span nz-tooltip nzTooltipTitle="删除" i18n-nzTooltipTitle="@@product_category.delete">
           <a
             nz-popconfirm
             [nzPopconfirmTitle]="'Are you sure delete ' + data.name + '?'"
             nzPopconfirmPlacement="bottom"
             (nzOnConfirm)="DeleteData(data)"
-          >Delete</a>
+            i18n="@@product_category.delete"
+          >删除</a>
         </span>
     </td>
   </tr>

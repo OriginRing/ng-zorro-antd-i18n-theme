@@ -11,10 +11,20 @@ export class AdminService {
 
   constructor(private httpClient: HttpClient) { }
 
+  verifyToken(token: string | null): Observable<boolean>{
+    return this.httpClient.post<{data: boolean}>(
+      `${url}/api/v1/admin/admin/token`,
+      { token }
+    ).pipe(
+      map(item => item.data || false),
+      catchError(() => of(false))
+    )
+  }
+
   adminToken(userName: string, password: string): Observable<string | null>{
     return this.httpClient.post<{token: string}>(
-      `${url}/api/v1/auth/manager_login`,
-      { userName: userName, password: password }
+      `${url}/api/v1/admin/admin/login`,
+      { userName: userName, passWord: password }
     )
       .pipe(
         map(item => item.token || null),
