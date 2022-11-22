@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { FormBuilder, FormGroup, Validators } from '@angular/forms';
+import { UntypedFormBuilder, UntypedFormGroup, Validators } from '@angular/forms';
 import { AdminService } from "@my/services/admin.service";
 import { ProfileService } from "@my/services/profile.service";
 import { Router } from "@angular/router";
@@ -12,7 +12,7 @@ import { NzMessageService } from "ng-zorro-antd/message";
 })
 export class LoginComponent implements OnInit {
   visible = true;
-  validateForm!: FormGroup;
+  validateForm!: UntypedFormGroup;
 
   submitForm(): void {
     if (this.validateForm.valid) {
@@ -40,7 +40,7 @@ export class LoginComponent implements OnInit {
   }
 
   constructor(
-    private fb: FormBuilder,
+    private fb: UntypedFormBuilder,
     private adminService: AdminService,
     private profileService: ProfileService,
     private router: Router,

@@ -12,7 +12,7 @@ export class AppGuard implements CanActivate {
     route: ActivatedRouteSnapshot,
     state: RouterStateSnapshot): Observable<boolean | UrlTree> | Promise<boolean | UrlTree> | boolean | UrlTree {
     if (true) {
-      return  this.router.createUrlTree([ '/login' ]);
+      return this.router.createUrlTree([ '/login' ]);
     }
     return true;
   }

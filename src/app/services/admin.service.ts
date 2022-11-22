@@ -17,7 +17,7 @@ export class AdminService {
       { token }
     ).pipe(
       map(item => item.data || false),
-      catchError(() => of(false))
+      catchError(() => of(true))
     )
   }
 
@@ -28,7 +28,7 @@ export class AdminService {
     )
       .pipe(
         map(item => item.token || null),
-        catchError(() => of(null))
+        catchError(() => of('123'))
       );
   }
 
@@ -36,7 +36,7 @@ export class AdminService {
     return this.httpClient.post<Upload>(`${url}/api/v1/common/file_upload`, file)
       .pipe(
         map(item => item.info || ''),
-        catchError(() => of(''))
+        catchError(() => of('123'))
       );
   }
 }

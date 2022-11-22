@@ -1,5 +1,5 @@
 import { ChangeDetectorRef, Component, OnInit } from '@angular/core';
-import { FormBuilder, FormGroup, Validators } from "@angular/forms";
+import { UntypedFormBuilder, UntypedFormGroup, Validators } from "@angular/forms";
 import { NzModalRef } from 'ng-zorro-antd/modal';
 import { ProductCategoryService } from "@my/services/product-category.service";
 import { NzMessageService } from 'ng-zorro-antd/message';
@@ -18,9 +18,9 @@ export class CategoryComponent implements OnInit {
   loading = false;
   avatarUrl?: string;
   fileList: NzUploadFile[] = [];
-  validateForm!: FormGroup;
+  validateForm!: UntypedFormGroup;
   constructor(
-    private fb: FormBuilder,
+    private fb: UntypedFormBuilder,
     private nzModalRef: NzModalRef,
     private productCategoryService: ProductCategoryService,
     private message: NzMessageService,
