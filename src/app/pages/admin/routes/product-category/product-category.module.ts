@@ -15,7 +15,7 @@ import { NzPopconfirmModule } from 'ng-zorro-antd/popconfirm';
 import { CategoryModule } from './modules/category/category.module';
 
 @NgModule({
-  declarations: [ ProductCategoryComponent ],
+  declarations: [ProductCategoryComponent],
   imports: [
     CommonModule,
     FormsModule,
@@ -31,6 +31,6 @@ import { CategoryModule } from './modules/category/category.module';
     NzPopconfirmModule,
     CategoryModule
   ],
-  providers: [ NzModalService, NzMessageService ]
+  providers: [NzModalService, NzMessageService]
 })
 export class ProductCategoryModule {}

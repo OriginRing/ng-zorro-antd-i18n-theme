@@ -6,15 +6,13 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { NzFormModule } from 'ng-zorro-antd/form';
 import { NzButtonModule } from 'ng-zorro-antd/button';
 import { NzInputModule } from 'ng-zorro-antd/input';
-import { NzIconModule } from "ng-zorro-antd/icon";
-import { NzMessageModule } from "ng-zorro-antd/message"
-import { ThemeModule } from "@my/pages/modules/theme/theme.module";
-import { LocalizeModule } from "@my/pages/modules/localize/localize.module";
+import { NzIconModule } from 'ng-zorro-antd/icon';
+import { NzMessageModule } from 'ng-zorro-antd/message';
+import { ThemeModule } from '@my/pages/modules/theme/theme.module';
+import { LocalizeModule } from '@my/pages/modules/localize/localize.module';
 
 @NgModule({
-  declarations: [
-    LoginComponent
-  ],
+  declarations: [LoginComponent],
   imports: [
     CommonModule,
     LoginRoutingModule,
@@ -29,4 +27,4 @@ import { LocalizeModule } from "@my/pages/modules/localize/localize.module";
     LocalizeModule
   ]
 })
-export class LoginModule { }
+export class LoginModule {}

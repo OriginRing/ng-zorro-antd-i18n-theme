@@ -9,7 +9,7 @@ import { NzButtonModule } from 'ng-zorro-antd/button';
 import { NzModalModule } from 'ng-zorro-antd/modal';
 
 @NgModule({
-  declarations: [ CategoryComponent ],
+  declarations: [CategoryComponent],
   imports: [
     CommonModule,
     FormsModule,
@@ -21,4 +21,4 @@ import { NzModalModule } from 'ng-zorro-antd/modal';
     NzModalModule
   ]
 })
-export class CategoryModule { }
+export class CategoryModule {}

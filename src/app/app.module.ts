@@ -11,16 +11,14 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { IconsProviderModule } from './icons-provider.module';
 import { NzLayoutModule } from 'ng-zorro-antd/layout';
 import { NzMenuModule } from 'ng-zorro-antd/menu';
-import { ProfileService } from "@my/services/profile.service";
-import { AppInitializerProvider } from "@my/app-initializer.service";
-import { AppI18nService } from "@my/app-i18n.service";
+import { ProfileService } from '@my/services/profile.service';
+import { AppInitializerProvider } from '@my/app-initializer.service';
+import { AppI18nService } from '@my/app-i18n.service';
 
 registerLocaleData(zh);
 
 @NgModule({
-  declarations: [
-    AppComponent
-  ],
+  declarations: [AppComponent],
   imports: [
     BrowserModule,
     AppRoutingModule,
@@ -37,10 +35,10 @@ registerLocaleData(zh);
     {
       provide: APP_INITIALIZER,
       useFactory: (profileService: ProfileService) => () => profileService.boot(),
-      deps: [ ProfileService ],
+      deps: [ProfileService],
       multi: true
     }
   ],
-  bootstrap: [ AppComponent ]
+  bootstrap: [AppComponent]
 })
-export class AppModule { }
+export class AppModule {}

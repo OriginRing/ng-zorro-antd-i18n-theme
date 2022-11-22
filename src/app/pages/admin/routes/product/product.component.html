@@ -15,43 +15,48 @@
   [nzPageIndex]="pageIndex"
   [nzPageSize]="pageSize"
   (nzQueryParams)="PageIndexChange($event)"
-  [nzScroll]="{ x: '1000px' }"
->
+  [nzScroll]="{ x: '1000px' }">
   <thead>
-  <tr>
-    <th nzWidth="150px">name</th>
-    <th nzWidth="80px">onSale</th>
-    <th nzWidth="120px">quantity</th>
-    <th nzWidth="120px">price</th>
-    <th nzWidth="150px">coverImg</th>
-    <th nzWidth="150px">productCategory</th>
-    <th nzWidth="120px">Action</th>
-  </tr>
+    <tr>
+      <th nzWidth="150px">name</th>
+      <th nzWidth="80px">onSale</th>
+      <th nzWidth="120px">quantity</th>
+      <th nzWidth="120px">price</th>
+      <th nzWidth="150px">coverImg</th>
+      <th nzWidth="150px">productCategory</th>
+      <th nzWidth="120px">Action</th>
+    </tr>
   </thead>
   <tbody>
-  <tr *ngFor="let data of basicTable .data">
-    <td nz-tooltip [nzTooltipTitle]="data.name">{{ data.name }}</td>
-    <td>{{ data.onSale }}</td>
-    <td>{{ data.quantity }}</td>
-    <td>{{ data.price/100 }}</td>
-    <td>
-      <img class="coverImg" [src]="data.coverImg" [alt]="data.name" width="100px" height="100px" />
-    </td>
-    <td>{{ data.productCategory.name}}</td>
-    <td>
+    <tr *ngFor="let data of basicTable.data">
+      <td nz-tooltip [nzTooltipTitle]="data.name">{{ data.name }}</td>
+      <td>{{ data.onSale }}</td>
+      <td>{{ data.quantity }}</td>
+      <td>{{ data.price / 100 }}</td>
+      <td>
+        <img
+          class="coverImg"
+          [src]="data.coverImg"
+          [alt]="data.name"
+          width="100px"
+          height="100px" />
+      </td>
+      <td>{{ data.productCategory.name }}</td>
+      <td>
         <span nz-tooltip nzTooltipTitle="编辑">
           <a>Edit</a>
         </span>
-      <nz-divider nzType="vertical"></nz-divider>
-      <span nz-tooltip nzTooltipTitle="删除">
+        <nz-divider nzType="vertical"></nz-divider>
+        <span nz-tooltip nzTooltipTitle="删除">
           <a
             nz-popconfirm
             [nzPopconfirmTitle]="'Are you sure delete ' + data.name + '?'"
             nzPopconfirmPlacement="bottom"
-            (nzOnConfirm)="DeleteData(data)"
-          >Delete</a>
+            (nzOnConfirm)="DeleteData(data)">
+            Delete
+          </a>
         </span>
-    </td>
-  </tr>
+      </td>
+    </tr>
   </tbody>
 </nz-table>

@@ -13,5 +13,5 @@ export const AppI18nService = {
         return en_US;
     }
   },
-  deps: [ LOCALE_ID ]
+  deps: [LOCALE_ID]
 };

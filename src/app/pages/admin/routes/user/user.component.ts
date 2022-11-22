@@ -18,9 +18,9 @@ export class SomeComponent {}
 
   ngOnInit(): void {
     this.validateForm = this.fb.group({
-      userName: [ 'cron-expression', [ Validators.required ] ],
-      cronLinux: [ '* 1 * * *', [ Validators.required ] ],
-      cronSpring: [ '0 * 1 * * *', [ Validators.required ] ]
+      userName: ['cron-expression', [Validators.required]],
+      cronLinux: ['* 1 * * *', [Validators.required]],
+      cronSpring: ['0 * 1 * * *', [Validators.required]]
     });
   }
 

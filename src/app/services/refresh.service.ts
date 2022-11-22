@@ -12,8 +12,8 @@ import {
   startWith,
   Subject,
   switchMap
-} from "rxjs";
-import { NavigationEnd, Router } from "@angular/router";
+} from 'rxjs';
+import { NavigationEnd, Router } from '@angular/router';
 
 @Injectable({
   providedIn: 'root'
@@ -25,18 +25,22 @@ export class RefreshService {
   private navigationEnd$ = this.router.events.pipe(
     filter(item => item instanceof NavigationEnd),
     mapTo(true)
-  )
-  private interval$ = interval(this.intervalTime).pipe(mapTo(true), startWith(true))
+  );
+  private interval$ = interval(this.intervalTime).pipe(mapTo(true), startWith(true));
 
   // 热更新
-  refresh$ = merge(this.visibility$, this.manualRefresh$.pipe(mapTo(true)), this.navigationEnd$.pipe(
-    startWith(true),
-    debounceTime(300),
-    switchMap(active => (active ? this.interval$ : EMPTY)),
-    share()
-  ))
-  refresh(): void{
+  refresh$ = merge(
+    this.visibility$,
+    this.manualRefresh$.pipe(mapTo(true)),
+    this.navigationEnd$.pipe(
+      startWith(true),
+      debounceTime(300),
+      switchMap(active => (active ? this.interval$ : EMPTY)),
+      share()
+    )
+  );
+  refresh(): void {
     this.manualRefresh$.next(true);
   }
-  constructor(private router: Router) { }
+  constructor(private router: Router) {}
 }

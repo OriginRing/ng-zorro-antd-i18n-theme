@@ -1,18 +1,18 @@
 import { ChangeDetectorRef, Component, OnInit } from '@angular/core';
-import { UntypedFormBuilder, UntypedFormGroup, Validators } from "@angular/forms";
+import { UntypedFormBuilder, UntypedFormGroup, Validators } from '@angular/forms';
 import { NzModalRef } from 'ng-zorro-antd/modal';
-import { ProductCategoryService } from "@my/services/product-category.service";
+import { ProductCategoryService } from '@my/services/product-category.service';
 import { NzMessageService } from 'ng-zorro-antd/message';
-import { map } from "rxjs";
-import { RefreshService } from "@my/services/refresh.service";
-import { NzUploadFile } from "ng-zorro-antd/upload";
-import { AdminService } from "@my/services/admin.service";
-import { url } from "@my/uitls/url";
+import { map } from 'rxjs';
+import { RefreshService } from '@my/services/refresh.service';
+import { NzUploadFile } from 'ng-zorro-antd/upload';
+import { AdminService } from '@my/services/admin.service';
+import { url } from '@my/uitls/url';
 
 @Component({
   selector: 'app-category',
   templateUrl: './category.component.html',
-  styleUrls: [ './category.component.less' ]
+  styleUrls: ['./category.component.less']
 })
 export class CategoryComponent implements OnInit {
   loading = false;
@@ -26,28 +26,29 @@ export class CategoryComponent implements OnInit {
     private message: NzMessageService,
     private refreshService: RefreshService,
     private adminService: AdminService,
-    private ref: ChangeDetectorRef,
-  ) { }
+    private ref: ChangeDetectorRef
+  ) {}
 
   ngOnInit(): void {
     this.validateForm = this.fb.group({
-      name: [ null, [ Validators.required ] ],
-      descriptions: [ null, [ Validators.required ] ],
-      coverImg: [ null, [ Validators.required ] ],
-      tag: [ null, [ Validators.required ] ],
-
+      name: [null, [Validators.required]],
+      descriptions: [null, [Validators.required]],
+      coverImg: [null, [Validators.required]],
+      tag: [null, [Validators.required]]
     });
   }
 
   submitForm(): void {
     this.validateForm.patchValue({ coverImg: this.avatarUrl });
     if (this.validateForm.valid) {
-      this.productCategoryService.ProductCategoryPostAdd(
-        this.validateForm.value.name,
-        this.validateForm.value.descriptions,
-        this.validateForm.value.coverImg,
-        this.validateForm.value.tag
-      ).pipe(map(item => !!item))
+      this.productCategoryService
+        .ProductCategoryPostAdd(
+          this.validateForm.value.name,
+          this.validateForm.value.descriptions,
+          this.validateForm.value.coverImg,
+          this.validateForm.value.tag
+        )
+        .pipe(map(item => !!item))
         .subscribe(item => {
           if (item) {
             this.nzModalRef.close();
@@ -66,7 +67,7 @@ export class CategoryComponent implements OnInit {
     }
   }
 
-  cancel(): void{
+  cancel(): void {
     this.nzModalRef.close();
   }
 
@@ -82,10 +83,9 @@ export class CategoryComponent implements OnInit {
     this.fileList.forEach((file: any) => {
       formData.append('file', file);
     });
-    this.adminService.uploadFile(formData)
-      .subscribe(item => {
-        this.avatarUrl = url + item;
-        this.ref.markForCheck();
-      });
+    this.adminService.uploadFile(formData).subscribe(item => {
+      this.avatarUrl = url + item;
+      this.ref.markForCheck();
+    });
   }
 }

@@ -1,13 +1,13 @@
 import { Injectable } from '@angular/core';
-import { NzConfigService } from "ng-zorro-antd/core/config";
+import { NzConfigService } from 'ng-zorro-antd/core/config';
 
 enum ThemeType {
   dark = 'dark',
-  default = 'default',
+  default = 'default'
 }
 
 @Injectable({
-  providedIn: 'root',
+  providedIn: 'root'
 })
 export class ThemeService {
   currentTheme = ThemeType.default;
@@ -45,7 +45,7 @@ export class ThemeService {
     }
     return new Promise<Event>((resolve, reject) => {
       this.loadCss(`${theme}.css`, theme).then(
-        (e) => {
+        e => {
           if (!firstLoad) {
             document.documentElement.classList.add(theme);
           }
@@ -53,7 +53,7 @@ export class ThemeService {
           this.onDarkModeChange(this.currentTheme);
           resolve(e);
         },
-        (e) => reject(e)
+        e => reject(e)
       );
     });
   }
@@ -68,7 +68,7 @@ export class ThemeService {
     this.nzConfigService.set('codeEditor', {
       defaultEditorOption: {
         ...defaultEditorOption,
-        theme: dark ==='dark' ? 'vs-dark' : 'vs'
+        theme: dark === 'dark' ? 'vs-dark' : 'vs'
       }
     });
   }
